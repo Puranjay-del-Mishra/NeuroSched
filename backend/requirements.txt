@@ -1,4 +1,4 @@
-aioredis==2.0.1
+redis[async]==5.0.4
 fastapi==0.116.1
 pydantic==2.11.7
 uvicorn[standard]==0.30.0

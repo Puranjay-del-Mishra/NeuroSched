@@ -1,4 +1,4 @@
-import aioredis
+import redis.asyncio as redis
 import json
 import os
 
@@ -15,7 +15,7 @@ class RedisStore:
     async def connect(self):
         """Initialize Redis connection."""
         if self.redis is None:
-            self.redis = await aioredis.from_url(REDIS_URL, decode_responses=True)
+            self.redis = await redis.from_url(REDIS_URL, decode_responses=True)
 
     async def save_update(self, update: dict):
         """Save a single update (plot point)."""

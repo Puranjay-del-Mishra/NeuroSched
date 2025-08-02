@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: neurosched-backend
+    env: docker
+    plan: free
+    branch: main
+    region: oregon
+    dockerfilePath: backend/Dockerfile
+    dockerContext: backend
+    envVars:
+      - key: REDIS_URL
+        sync: false

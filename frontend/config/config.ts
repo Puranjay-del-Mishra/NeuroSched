@@ -1,0 +1,7 @@
+const BACKEND_BASE: string =
+  process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+
+const WS_BASE: string =
+  process.env.NEXT_PUBLIC_BACKEND_WS_URL || "ws://localhost:8000";
+
+export { BACKEND_BASE, WS_BASE };

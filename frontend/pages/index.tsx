@@ -10,6 +10,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
+import { BACKEND_BASE, WS_BASE } from "../config/config";
 
 type SimulationConfig = {
   runtime_seconds: number;
@@ -58,7 +59,7 @@ export default function Home() {
     setResults(null);
     setData([]);
 
-    await fetch("http://localhost:8000/start-simulation", {
+    await fetch(`${BACKEND_BASE}/start-simulation`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(config),
@@ -66,7 +67,7 @@ export default function Home() {
 
     setIsRunning(true);
 
-    const socket = new WebSocket("ws://localhost:8000/ws/simulation");
+    const socket = new WebSocket(`${WS_BASE}/ws/simulation`);
     socketRef.current = socket;
 
     socket.onmessage = (event) => {
@@ -78,7 +79,7 @@ export default function Home() {
       setIsRunning(false);
       setLoadingResults(true);
       try {
-        const res = await fetch("http://localhost:8000/results");
+        const res = await fetch(`${BACKEND_BASE}/results`);
         const finalResults = await res.json();
         setResults(finalResults);
       } catch (err) {
@@ -90,30 +91,30 @@ export default function Home() {
   };
 
   const stopSimulation = async () => {
-    await fetch("http://localhost:8000/stop-simulation", { method: "POST" });
+    await fetch(`${BACKEND_BASE}/stop-simulation`, { method: "POST" });
     socketRef.current?.close();
   };
 
   const clearResults = async () => {
-  try {
-    await fetch("http://localhost:8000/clear-results", { method: "POST" });
-    setData([]);
-    setResults(null);
-  } catch (err) {
-    console.error("Error clearing results:", err);
-  }
-};
+    try {
+      await fetch(`${BACKEND_BASE}/clear-results`, { method: "POST" });
+      setData([]);
+      setResults(null);
+    } catch (err) {
+      console.error("Error clearing results:", err);
+    }
+  };
 
   useEffect(() => {
     const fetchPersisted = async () => {
       try {
-        const resResults = await fetch("http://localhost:8000/results");
+        const resResults = await fetch(`${BACKEND_BASE}/results`);
         const persistedResults = await resResults.json();
         if (persistedResults.throughput) {
           setResults(persistedResults);
         }
 
-        const resData = await fetch("http://localhost:8000/history");
+        const resData = await fetch(`${BACKEND_BASE}/history`);
         const persistedData = await resData.json();
         if (Array.isArray(persistedData)) {
           setData(persistedData);

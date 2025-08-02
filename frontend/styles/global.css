@@ -1,0 +1,154 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  color: #f1f5f9;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Container Layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Config Panel */
+.form-panel {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.form-panel h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Grid Form Layout */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-grid label {
+  font-weight: 500;
+  align-self: center;
+}
+
+.form-grid input {
+  background: #334155;
+  border: 1px solid #475569;
+  color: #f1f5f9;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+/* Range Inputs */
+.range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.range-inputs input {
+  width: 80px;
+}
+
+/* Buttons */
+.button-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+button {
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+button:disabled {
+  background: #64748b;
+  cursor: not-allowed;
+}
+
+.stop-button {
+  background: #ef4444;
+}
+
+.stop-button:hover {
+  background: #dc2626;
+}
+
+.clear-button {
+  background: #f59e0b;
+}
+
+.clear-button:hover {
+  background: #d97706;
+}
+
+/* Chart Panel */
+.chart-panel {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.chart-panel h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.chart-panel section {
+  margin-bottom: 2rem;
+}
+
+/* Results Panel */
+.results-panel {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.results-panel h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.results-panel ul {
+  list-style: none;
+  font-size: 1.1rem;
+}
+
+.results-panel li {
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+}

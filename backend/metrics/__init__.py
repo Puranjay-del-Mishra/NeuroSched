@@ -1,0 +1,1 @@
+from .fairness import fairness_from_wait_times

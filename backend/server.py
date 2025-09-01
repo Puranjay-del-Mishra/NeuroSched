@@ -141,3 +141,7 @@ async def simulation_ws(ws: WebSocket):
             last_results = engine._collect_results()
             await store.save_results(last_results)
         await ws.close()
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)

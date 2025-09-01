@@ -5,3 +5,16 @@ __pycache__/
 dist/
 build/
 
+
+# --- Next.js / Frontend ---
+frontend/.next/
+frontend/out/
+frontend/.vercel/
+frontend/.env*
+# Optional local build caches
+frontend/.turbo/
+
+# Editor/OS noise (safe to ignore globally)
+.vscode/
+.idea/
+.DS_Store
